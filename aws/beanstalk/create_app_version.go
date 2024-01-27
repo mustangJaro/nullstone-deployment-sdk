@@ -14,7 +14,6 @@ func CreateAppVersion(ctx context.Context, infra Outputs, version string) (strin
 		ApplicationName:       aws.String(infra.BeanstalkName),
 		VersionLabel:          aws.String(version),
 		AutoCreateApplication: aws.Bool(false),
-		Process:               aws.Bool(true),
 		SourceBundle: &ebtypes.S3Location{
 			S3Bucket: aws.String(infra.ArtifactsBucketName),
 			S3Key:    aws.String(infra.ArtifactsKey(version)),
